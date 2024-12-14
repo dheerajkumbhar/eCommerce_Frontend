@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 const orderApi = createApi({
   reducerPath: "orderApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://redmangoe-commerce.azurewebsites.net/api/",
+    baseUrl: process.env.REACT_APP_API_URL,
     prepareHeaders: (headers: Headers, api) => {
       const token = localStorage.getItem("token");
       token && headers.append("Authorization", "Bearer " + token);
